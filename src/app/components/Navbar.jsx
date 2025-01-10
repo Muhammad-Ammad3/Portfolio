@@ -30,8 +30,7 @@ const links = [
 
 const Navbar = () => {
     const pathName = usePathname()
-    console.log(pathName);
-    
+        
     return(
         <nav className="flex gap-8">
             {links.map((link, index)=>{
