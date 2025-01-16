@@ -2,10 +2,11 @@
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { motion } from "framer-motion"
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-import {Swiper, SwiperSlide} from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
 
 
 const projects = [
@@ -14,8 +15,9 @@ const projects = [
         category: "Frontend",
         titel: "Project 1",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aperiam.",
-        stack: [{name: "Html 5"}, {name: "CSS 3"}, {name: "Javascript"}],
-        image: "",
+        stack: 
+        [{name: "Html 5"}, {name: "CSS 3"}, {name: "Javascript"}],
+        image: "/images/image3.png",
         live: "",
         github: "",
     },
@@ -25,7 +27,7 @@ const projects = [
         titel: "Project 2",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aperiam.",
         stack: [{name: "Next.js"}, {name: "Tailwind CSS"}, {name: "Node.js"}],
-        image: "",
+        image: "/images/image2.png",
         live: "",
         github: "",
     },
@@ -35,20 +37,28 @@ const projects = [
         titel: "Project 3",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aperiam.",
         stack: [{name: "Next.js"}, {name: "Tailwind CSS"}],
-        image: "",
+        image: "/images/image1.png",
         live: "",
         github: "",
     },
 ]
 
 const Work = () => {
-    const [project , setproject] = useState(projects[0])
+    const [project , setProject] = useState(projects[0])
+
+    const handleSlideChange = (swiper) => {
+        // get current slide index 
+        const currentIndex = swiper.activeIndex;
+        // update project state baseed on current slide index 
+        setProject(projects[currentIndex])
+    }
+
     return(
         <motion.section initial={{opacity: 0}}
-        animate={{opacity: 1,}}
+        animate={{opacity: 1}}
         className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0">
             <div className="container mx-auto">
-                <div className="flex flex-col xl:flex-row xl: gap-[30px]">
+                <div className="flex flex-col xl:flex-row xl:gap-[30px]">
                     <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
                         <div className="flex flex-col gap-[30px] h-[50%]">
                             {/* outline num */}
@@ -103,11 +113,13 @@ const Work = () => {
                         </div>
                     </div>
                     <div className="w-full xl:w-[50%]">
-                        <Swiper>{projects.map((project, index) => {
-                            return(
-                                
-                            )
-                        })}</Swiper>
+                        <Swiper>
+                            {projects.map((project, index) => {
+                                return(
+                                    <SwiperSlide key={index}>slide</SwiperSlide>
+                                )
+                            })}
+                        </Swiper>
                     </div>
                 </div>
             </div>
