@@ -1,6 +1,8 @@
+"use client"
 
+import { FaPhoneAlt } from "react-icons/fa";
 
-const Services = () => {
+const Contact = () => {
     return(
         <div>Services page</div>
     )
