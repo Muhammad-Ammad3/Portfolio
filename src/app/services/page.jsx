@@ -14,13 +14,13 @@ const services = [
     },
     {
         num: "02",
-        titel: "UI/ UX Design",
+        titel: "Python",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, voluptas",
         href: ""
     },
     {
         num: "03",
-        titel: "Logo Design",
+        titel: "App Development",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, voluptas",
         href: ""
     },
