@@ -10,7 +10,7 @@ const services = [
         num: "01",
         titel: "Web Development",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, voluptas",
-        href: ""
+        href: "https://doctor-appointment-tan.vercel.app/"
     },
     {
         num: "02",
@@ -22,7 +22,7 @@ const services = [
         num: "03",
         titel: "App Development",
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, voluptas",
-        href: ""
+        href: "https://github.com/Muhammad-Ammad3/app"
     },
     {
         num: "04",
