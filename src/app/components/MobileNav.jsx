@@ -6,7 +6,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Key } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CiMenuFries } from "react-icons/ci";
@@ -44,7 +43,7 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         {/* logo */}
-        <div className="mt-32 mb-40 text-center text-2xl">
+        <div className="mt-32 mb-32 text-center text-2xl">
           <Link href="/">
             <h1 className="text-4xl font-semibold">
               Muhammad Ammad<span className="text-accent">.</span>
@@ -52,7 +51,7 @@ const MobileNav = () => {
           </Link>
         </div>
         {/* nav */}
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="flex flex-col justify-center items-center gap-4">
           {Links.map((link, index) => {
             return (
               <Link
@@ -69,7 +68,7 @@ const MobileNav = () => {
           })}
         </nav>
       </SheetContent>
-      <SheetTitle>Logo</SheetTitle>
+      <SheetTitle></SheetTitle>
     </Sheet>
   );
 };

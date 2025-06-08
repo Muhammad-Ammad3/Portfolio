@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import PageTransition from "./components/PageTransition";
 import StairTransition from "./components/StairTransition";
+import favicon from "../../public/favicon.png"
 
 const jetbrainsMono = JetBrains_Mono({subsets:['latin'], 
   weight : ["100","200","300","400","500","600","700","800"],
@@ -11,6 +12,9 @@ const jetbrainsMono = JetBrains_Mono({subsets:['latin'],
 export const metadata = {
   title: "Portfolio",
   description: "My personal portfolio",
+    icons: {
+    icon: "/favicon.png", 
+  },
 };
 
 export default function RootLayout({ children }) {
