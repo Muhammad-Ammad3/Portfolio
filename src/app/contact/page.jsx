@@ -111,7 +111,6 @@
 
 // export default Contact;
 
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -129,6 +128,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
+import Swal from "sweetalert2"; // ✅ import Swal
 
 const info = [
   {
@@ -150,13 +150,23 @@ const info = [
 
 const Contact = () => {
   const [service, setService] = useState("");
-const handleSubmit = (e) => {
-  e.preventDefault();
-  alert("Thank you! Your message has been sent ✅");
 
-  e.target.submit();
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    const form = e.target;
+    const firstName = form.first_name.value;
+    const lastName = form.last_name.value;
+
+    Swal.fire({
+      title: "Thank You!",
+      text: `Thanks ${firstName} ${lastName}, your message has been sent`,
+      icon: "success",
+      confirmButtonText: "Close",
+    }).then(() => {
+      form.submit();
+    });
+  };
 
   return (
     <motion.section
@@ -187,15 +197,11 @@ const handleSubmit = (e) => {
               <input
                 type="hidden"
                 name="_next"
-                value="https://yourwebsite.com/thank-you"
+                value="https://ammad-portfolio-two.vercel.app/"
               />
-              <input
-                type="text"
-                name="_honey"
-                style={{ display: "none" }}
-              />
+              <input type="text" name="_honey" style={{ display: "none" }} />
 
-              {/* input  */}
+              {/* inputs  */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   type="text"
@@ -245,14 +251,14 @@ const handleSubmit = (e) => {
                 required
               />
 
-              {/* btn  */}
+              {/* button  */}
               <Button size="md" className="max-w-40" type="submit">
                 Send Message
               </Button>
             </form>
           </div>
 
-          {/* info  */}
+          {/* info section  */}
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => (
